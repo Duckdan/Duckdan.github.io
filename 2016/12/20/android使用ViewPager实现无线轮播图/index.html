@@ -84,24 +84,18 @@
 
 
 
-<meta name="description" content="android中使用ViewPager实现无线轮播图##一、实现方式：
-&amp;nbsp;&amp;nbsp;&amp;nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现&amp;nbsp;&amp;nbsp;&amp;nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现##二、实现原理：
-&amp;nbsp;&amp;nbsp;&amp;nbsp;上述的的方式一，其实可以理解成一种假的无限轮">
+<meta name="description" content="android中使用ViewPager实现无线轮播图一、实现方式：&amp;nbsp;&amp;nbsp;&amp;nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现&amp;nbsp;&amp;nbsp;&amp;nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现二、实现原理：&amp;nbsp;&amp;nbsp;&amp;nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YangMingHanBlog">
 <meta property="og:url" content="http://yoursite.com/2016/12/20/android使用ViewPager实现无线轮播图/index.html">
 <meta property="og:site_name" content="YangMingHanBlog">
-<meta property="og:description" content="android中使用ViewPager实现无线轮播图##一、实现方式：
-&amp;nbsp;&amp;nbsp;&amp;nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现&amp;nbsp;&amp;nbsp;&amp;nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现##二、实现原理：
-&amp;nbsp;&amp;nbsp;&amp;nbsp;上述的的方式一，其实可以理解成一种假的无限轮">
+<meta property="og:description" content="android中使用ViewPager实现无线轮播图一、实现方式：&amp;nbsp;&amp;nbsp;&amp;nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现&amp;nbsp;&amp;nbsp;&amp;nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现二、实现原理：&amp;nbsp;&amp;nbsp;&amp;nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太">
 <meta property="og:image" content="http://yoursite.com/images\CycleViewPager.png">
 <meta property="og:image" content="http://yoursite.com/images\show.gif">
-<meta property="og:updated_time" content="2016-12-20T12:58:38.370Z">
+<meta property="og:updated_time" content="2016-12-20T13:12:52.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YangMingHanBlog">
-<meta name="twitter:description" content="android中使用ViewPager实现无线轮播图##一、实现方式：
-&amp;nbsp;&amp;nbsp;&amp;nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现&amp;nbsp;&amp;nbsp;&amp;nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现##二、实现原理：
-&amp;nbsp;&amp;nbsp;&amp;nbsp;上述的的方式一，其实可以理解成一种假的无限轮">
+<meta name="twitter:description" content="android中使用ViewPager实现无线轮播图一、实现方式：&amp;nbsp;&amp;nbsp;&amp;nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现&amp;nbsp;&amp;nbsp;&amp;nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现二、实现原理：&amp;nbsp;&amp;nbsp;&amp;nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太">
 <meta name="twitter:image" content="http://yoursite.com/images\CycleViewPager.png">
 
 
@@ -340,219 +334,11 @@
       
 
       
-        <h1 id="android中使用ViewPager实现无线轮播图"><a href="#android中使用ViewPager实现无线轮播图" class="headerlink" title="android中使用ViewPager实现无线轮播图"></a>android中使用ViewPager实现无线轮播图</h1><p>##一、实现方式：</p>
-<h3 id="nbsp-nbsp-nbsp-1-通过ViewPager适配器中的getCount-方法添加一个整型最大的值来实现"><a href="#nbsp-nbsp-nbsp-1-通过ViewPager适配器中的getCount-方法添加一个整型最大的值来实现" class="headerlink" title="&nbsp;&nbsp;&nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现"></a>&nbsp;&nbsp;&nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现</h3><h3 id="nbsp-nbsp-nbsp-2-通过继承ViewPager重写ViewPager中的部分方法来实现"><a href="#nbsp-nbsp-nbsp-2-通过继承ViewPager重写ViewPager中的部分方法来实现" class="headerlink" title="&nbsp;&nbsp;&nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现"></a>&nbsp;&nbsp;&nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现</h3><p>##二、实现原理：</p>
-<h3 id="nbsp-nbsp-nbsp-上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。"><a href="#nbsp-nbsp-nbsp-上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。" class="headerlink" title="&nbsp;&nbsp;&nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。"></a>&nbsp;&nbsp;&nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。</h3><h3 id="原理展示图如下图所示："><a href="#原理展示图如下图所示：" class="headerlink" title="原理展示图如下图所示："></a>原理展示图如下图所示：</h3><p><img src="images\CycleViewPager.png" alt="theory"></p>
-<p>##三、代码实现</p>
-<p>###布局文件<br>```xml</p>
-  <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".MainActivity"><br><br>    <com.example.cycleviewpage.cycleviewpager android:id="@+id/vp" android:layout_width="match_parent" android:layout_height="200dp"><br><br></com.example.cycleviewpage.cycleviewpager></linearlayout>
-
-<p>###java代码实现</p>
-<p>```java</p>
-<p>package com.example.cycleviewpage;<br></p>
-<p>import android.app.Activity;<br><br>import android.content.Context;<br><br>import android.os.Bundle;<br><br>import android.support.v4.view.PagerAdapter;<br><br>import android.support.v4.view.ViewPager;<br><br>import android.view.View;<br><br>import android.view.ViewGroup;<br><br>import android.widget.ImageView;<br></p>
-<p>public class MainActivity extends Activity {</p>
-<pre><code>private ViewPager vp;
-//四张图片资源id的整型数组
-private int[] ids = { R.drawable.a, R.drawable.b, R.drawable.c,
-        R.drawable.d };
-private Context context;
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    context = this;
-    vp = (ViewPager) findViewById(R.id.vp);
-    //给vp设置适配器
-    vp.setAdapter(new Adapter());
-}
-
-private class Adapter extends PagerAdapter {
-
-    @Override
-    public int getCount() {
-        return ids.length ;
-    }
-    //初始化ViewPager中添加的内容
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        ImageView image = new ImageView(context);
-        image.setBackgroundResource(ids[position]);
-        container.addView(image);
-        return image;
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view==object;
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
-    }
-}
-</code></pre><p>}</p>
-<p>###自定义的无限轮播的CycleViewPager<br>```java</p>
-<p>package com.example.cycleviewpage;<br></p>
-<p>import android.content.Context;<br><br>import android.os.Handler;<br><br>import android.support.v4.view.PagerAdapter;<br><br>import android.support.v4.view.ViewPager;<br><br>import android.util.AttributeSet;<br><br>import android.view.MotionEvent;<br><br>import android.view.View;<br><br>import android.view.ViewGroup;<br></p>
-<p>public class CycleViewPager extends ViewPager {</p>
-<pre><code>//创建一个Handler对象来实现图片的自动轮播
-private Handler handler = new Handler() {
-    public void handleMessage(android.os.Message msg) {
-        if (msg.what == 0) {
-            //获取当前CycleViewPager展示的位置
-            int currentItem = getCurrentItem();
-            currentItem += 1;
-            setCurrentItem(currentItem);
-            //通过再次发送handler消息实现无线轮播图
-            handler.sendEmptyMessageDelayed(0, 2000);
-        }
-    };
-};
-
-public CycleViewPager(Context context) {
-    super(context);
-}
-
-public CycleViewPager(Context context, AttributeSet attrs) {
-    super(context, attrs);
-}
-
-//重写ViewPager的监听方法，来实现在自定义控件内部的监听
-@Override
-public void setOnPageChangeListener(OnPageChangeListener listener) {
-    InnerPageChangeListener innerListener = new InnerPageChangeListener(
-            listener);
-    super.setOnPageChangeListener(innerListener);
-}
-
-//重写ViewPager的setAdapter，来实现在自定义控件内部的自己添加适配器
-@Override
-public void setAdapter(PagerAdapter adapter) {
-    //接收从外部来的Adapter,然后再对其进行再次的封装
-    InnerPagerAdapter innerAdapter = new InnerPagerAdapter(adapter);
-    super.setAdapter(innerAdapter);
-    setOnPageChangeListener(null);
-    setCurrentItem(1);
-    startScroll();
-}
-
-private void startScroll() {
-    handler.sendEmptyMessageDelayed(0, 2000);
-}
-
-private void stopScroll() {
-    handler.removeMessages(0);
-}
-
-@Override
-public boolean onTouchEvent(MotionEvent ev) {
-    switch (ev.getAction()) {
-    //在手指按下的时候让图片停止自动轮播
-    case MotionEvent.ACTION_DOWN:
-        stopScroll();
-        break;
-    case MotionEvent.ACTION_MOVE:
-        break;
-    //防止从ViewPager中滑动移除到其他控件的时候不执行ACTION_UP事件，从而无法实现图片的自动轮播
-    case MotionEvent.ACTION_CANCEL:
-    //手指抬起的时候再次发送handler消息，启动图片自动轮播的功能
-    case MotionEvent.ACTION_UP:
-        startScroll();
-        break;
-    }
-    return super.onTouchEvent(ev);
-}
-
-private class InnerPageChangeListener implements OnPageChangeListener {
-
-    private OnPageChangeListener listener;
-    private int position;
-
-    public InnerPageChangeListener(OnPageChangeListener listener) {
-        this.listener = listener;
-
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset,
-            int positionOffsetPixels) {
-        if (listener != null) {
-            listener.onPageScrolled(position, positionOffset,
-                    positionOffsetPixels);
-        }
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        this.position = position;
-        if (listener != null) {
-            listener.onPageSelected(position);
-        }
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-        //判断ViewPager的滑动状态，当滑动状态变为空闲的时候再完成切换页面，能够给用户不突兀的感觉
-        if (state == ViewPager.SCROLL_STATE_IDLE) {
-            if (position == getAdapter().getCount() - 1) {
-                // 当图片滑动到最后一个位置的时候，将位置改变为A图片
-                position = 1;
-            } else if (position == 0) {
-                // 当图片滑动到第一个位置的时候，将位置改变为D图片
-                position = getAdapter().getCount() - 2;
-            }
-        //false代表页面不平滑移动
-            setCurrentItem(position, false);
-        }
-        if (listener != null) {
-            listener.onPageScrollStateChanged(state);
-        }
-    }
-
-}
-
-private class InnerPagerAdapter extends PagerAdapter {
-
-    private PagerAdapter adapter;
-
-    public InnerPagerAdapter(PagerAdapter adapter) {
-        this.adapter = adapter;
-    }
-
-    @Override
-    public int getCount() {
-        //在ViewPager的头部和尾部分别添加两个页面(***)
-        return adapter.getCount() + 2;
-    }
-
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        if (position == getCount() - 1) {
-            // 当图片滑动到最后一个位置的时候，将位置改变为A图片
-            position = 0;
-        } else if (position == 0) {
-            // 当图片滑动到第一个位置的时候，将位置改变为D图片
-            position = getCount() - 3;
-        } else {
-            position = position - 1;
-        }
-        return adapter.instantiateItem(container, position);
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return adapter.isViewFromObject(view, object);
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        adapter.destroyItem(container, position, object);
-    }
-}
-</code></pre><p>}</p>
-<p>##四、结果展示<br><img src="images\show.gif" alt="result"></p>
+        <h1 id="android中使用ViewPager实现无线轮播图"><a href="#android中使用ViewPager实现无线轮播图" class="headerlink" title="android中使用ViewPager实现无线轮播图"></a>android中使用ViewPager实现无线轮播图</h1><h2 id="一、实现方式："><a href="#一、实现方式：" class="headerlink" title="一、实现方式："></a>一、实现方式：</h2><h3 id="nbsp-nbsp-nbsp-1-通过ViewPager适配器中的getCount-方法添加一个整型最大的值来实现"><a href="#nbsp-nbsp-nbsp-1-通过ViewPager适配器中的getCount-方法添加一个整型最大的值来实现" class="headerlink" title="&nbsp;&nbsp;&nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现"></a>&nbsp;&nbsp;&nbsp;1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现</h3><h3 id="nbsp-nbsp-nbsp-2-通过继承ViewPager重写ViewPager中的部分方法来实现"><a href="#nbsp-nbsp-nbsp-2-通过继承ViewPager重写ViewPager中的部分方法来实现" class="headerlink" title="&nbsp;&nbsp;&nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现"></a>&nbsp;&nbsp;&nbsp;2.通过继承ViewPager重写ViewPager中的部分方法来实现</h3><h2 id="二、实现原理："><a href="#二、实现原理：" class="headerlink" title="二、实现原理："></a>二、实现原理：</h2><h3 id="nbsp-nbsp-nbsp-上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。"><a href="#nbsp-nbsp-nbsp-上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。" class="headerlink" title="&nbsp;&nbsp;&nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。"></a>&nbsp;&nbsp;&nbsp;上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。</h3><h3 id="原理展示图如下图所示："><a href="#原理展示图如下图所示：" class="headerlink" title="原理展示图如下图所示："></a>原理展示图如下图所示：</h3><p><img src="images\CycleViewPager.png" alt="theory"></p>
+<h2 id="三、代码实现"><a href="#三、代码实现" class="headerlink" title="三、代码实现"></a>三、代码实现</h2><h3 id="布局文件"><a href="#布局文件" class="headerlink" title="布局文件"></a>布局文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">".MainActivity"</span> &gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">com.example.cycleviewpage.CycleViewPager</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/vp"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span></div><div class="line">        /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="java代码实现"><a href="#java代码实现" class="headerlink" title="java代码实现"></a>java代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">package</span> com.example.cycleviewpage;&lt;br/&gt;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.content.Context;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.PagerAdapter;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.view.View;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;&lt;br/&gt;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> ViewPager vp;</div><div class="line">	<span class="comment">//四张图片资源id的整型数组</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] ids = &#123; R.drawable.a, R.drawable.b, R.drawable.c,</div><div class="line">			R.drawable.d &#125;;</div><div class="line">	<span class="keyword">private</span> Context context;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">		setContentView(R.layout.activity_main);</div><div class="line">		context = <span class="keyword">this</span>;</div><div class="line">		vp = (ViewPager) findViewById(R.id.vp);</div><div class="line">		<span class="comment">//给vp设置适配器</span></div><div class="line">		vp.setAdapter(<span class="keyword">new</span> Adapter());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> ids.length ;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//初始化ViewPager中添加的内容</span></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">			ImageView image = <span class="keyword">new</span> ImageView(context);</div><div class="line">			image.setBackgroundResource(ids[position]);</div><div class="line">			container.addView(image);</div><div class="line">			<span class="keyword">return</span> image;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> view==object;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</div><div class="line">			container.removeView((View) object);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自定义的无限轮播的CycleViewPager"><a href="#自定义的无限轮播的CycleViewPager" class="headerlink" title="自定义的无限轮播的CycleViewPager"></a>自定义的无限轮播的CycleViewPager</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">package</span> com.example.cycleviewpage;&lt;br/&gt;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.os.Handler;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.PagerAdapter;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.view.MotionEvent;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.view.View;&lt;br/&gt;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;&lt;br/&gt;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CycleViewPager</span> <span class="keyword">extends</span> <span class="title">ViewPager</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">//创建一个Handler对象来实现图片的自动轮播</span></div><div class="line">	<span class="keyword">private</span> Handler handler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(android.os.Message msg)</span> </span>&#123;</div><div class="line">			<span class="keyword">if</span> (msg.what == <span class="number">0</span>) &#123;</div><div class="line">				<span class="comment">//获取当前CycleViewPager展示的位置</span></div><div class="line">				<span class="keyword">int</span> currentItem = getCurrentItem();</div><div class="line">				currentItem += <span class="number">1</span>;</div><div class="line">				setCurrentItem(currentItem);</div><div class="line">				<span class="comment">//通过再次发送handler消息实现无线轮播图</span></div><div class="line">				handler.sendEmptyMessageDelayed(<span class="number">0</span>, <span class="number">2000</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CycleViewPager</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>(context);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CycleViewPager</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>(context, attrs);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">//重写ViewPager的监听方法，来实现在自定义控件内部的监听</span></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnPageChangeListener</span><span class="params">(OnPageChangeListener listener)</span> </span>&#123;</div><div class="line">		InnerPageChangeListener innerListener = <span class="keyword">new</span> InnerPageChangeListener(</div><div class="line">				listener);</div><div class="line">		<span class="keyword">super</span>.setOnPageChangeListener(innerListener);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//重写ViewPager的setAdapter，来实现在自定义控件内部的自己添加适配器</span></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAdapter</span><span class="params">(PagerAdapter adapter)</span> </span>&#123;</div><div class="line">		<span class="comment">//接收从外部来的Adapter,然后再对其进行再次的封装</span></div><div class="line">		InnerPagerAdapter innerAdapter = <span class="keyword">new</span> InnerPagerAdapter(adapter);</div><div class="line">		<span class="keyword">super</span>.setAdapter(innerAdapter);</div><div class="line">		setOnPageChangeListener(<span class="keyword">null</span>);</div><div class="line">		setCurrentItem(<span class="number">1</span>);</div><div class="line">		startScroll();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startScroll</span><span class="params">()</span> </span>&#123;</div><div class="line">		handler.sendEmptyMessageDelayed(<span class="number">0</span>, <span class="number">2000</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">stopScroll</span><span class="params">()</span> </span>&#123;</div><div class="line">		handler.removeMessages(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">		<span class="keyword">switch</span> (ev.getAction()) &#123;</div><div class="line">		<span class="comment">//在手指按下的时候让图片停止自动轮播</span></div><div class="line">		<span class="keyword">case</span> MotionEvent.ACTION_DOWN:</div><div class="line">			stopScroll();</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="comment">//防止从ViewPager中滑动移除到其他控件的时候不执行ACTION_UP事件，从而无法实现图片的自动轮播</span></div><div class="line">		<span class="keyword">case</span> MotionEvent.ACTION_CANCEL:</div><div class="line">		<span class="comment">//手指抬起的时候再次发送handler消息，启动图片自动轮播的功能</span></div><div class="line">		<span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">			startScroll();</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(ev);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerPageChangeListener</span> <span class="keyword">implements</span> <span class="title">OnPageChangeListener</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="keyword">private</span> OnPageChangeListener listener;</div><div class="line">		<span class="keyword">private</span> <span class="keyword">int</span> position;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="title">InnerPageChangeListener</span><span class="params">(OnPageChangeListener listener)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.listener = listener;</div><div class="line"></div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrolled</span><span class="params">(<span class="keyword">int</span> position, <span class="keyword">float</span> positionOffset,</span></span></div><div class="line">				<span class="keyword">int</span> positionOffsetPixels) &#123;</div><div class="line">			<span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</div><div class="line">				listener.onPageScrolled(position, positionOffset,</div><div class="line">						positionOffsetPixels);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageSelected</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.position = position;</div><div class="line">			<span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</div><div class="line">				listener.onPageSelected(position);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrollStateChanged</span><span class="params">(<span class="keyword">int</span> state)</span> </span>&#123;</div><div class="line">			<span class="comment">//判断ViewPager的滑动状态，当滑动状态变为空闲的时候再完成切换页面，能够给用户不突兀的感觉</span></div><div class="line">			<span class="keyword">if</span> (state == ViewPager.SCROLL_STATE_IDLE) &#123;</div><div class="line">				<span class="keyword">if</span> (position == getAdapter().getCount() - <span class="number">1</span>) &#123;</div><div class="line">					<span class="comment">// 当图片滑动到最后一个位置的时候，将位置改变为A图片</span></div><div class="line">					position = <span class="number">1</span>;</div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> (position == <span class="number">0</span>) &#123;</div><div class="line">					<span class="comment">// 当图片滑动到第一个位置的时候，将位置改变为D图片</span></div><div class="line">					position = getAdapter().getCount() - <span class="number">2</span>;</div><div class="line">				&#125;</div><div class="line">			<span class="comment">//false代表页面不平滑移动</span></div><div class="line">				setCurrentItem(position, <span class="keyword">false</span>);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</div><div class="line">				listener.onPageScrollStateChanged(state);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerPagerAdapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="keyword">private</span> PagerAdapter adapter;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="title">InnerPagerAdapter</span><span class="params">(PagerAdapter adapter)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.adapter = adapter;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="comment">//在ViewPager的头部和尾部分别添加两个页面(***)</span></div><div class="line">			<span class="keyword">return</span> adapter.getCount() + <span class="number">2</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">			<span class="keyword">if</span> (position == getCount() - <span class="number">1</span>) &#123;</div><div class="line">				<span class="comment">// 当图片滑动到最后一个位置的时候，将位置改变为A图片</span></div><div class="line">				position = <span class="number">0</span>;</div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (position == <span class="number">0</span>) &#123;</div><div class="line">				<span class="comment">// 当图片滑动到第一个位置的时候，将位置改变为D图片</span></div><div class="line">				position = getCount() - <span class="number">3</span>;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				position = position - <span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> adapter.instantiateItem(container, position);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> adapter.isViewFromObject(view, object);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</div><div class="line">			adapter.destroyItem(container, position, object);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="四、结果展示"><a href="#四、结果展示" class="headerlink" title="四、结果展示"></a>四、结果展示</h2><p><img src="images\show.gif" alt="result"></p>
 
       
     </div>
@@ -693,7 +479,7 @@ private class InnerPagerAdapter extends PagerAdapter {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android中使用ViewPager实现无线轮播图"><span class="nav-number">1.</span> <span class="nav-text">android中使用ViewPager实现无线轮播图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-nbsp-1-通过ViewPager适配器中的getCount-方法添加一个整型最大的值来实现"><span class="nav-number">1.0.1.</span> <span class="nav-text">   1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-nbsp-2-通过继承ViewPager重写ViewPager中的部分方法来实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">   2.通过继承ViewPager重写ViewPager中的部分方法来实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-nbsp-上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。"><span class="nav-number">1.0.3.</span> <span class="nav-text">   上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理展示图如下图所示："><span class="nav-number">1.0.4.</span> <span class="nav-text">原理展示图如下图所示：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android中使用ViewPager实现无线轮播图"><span class="nav-number">1.</span> <span class="nav-text">android中使用ViewPager实现无线轮播图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、实现方式："><span class="nav-number">1.1.</span> <span class="nav-text">一、实现方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-nbsp-1-通过ViewPager适配器中的getCount-方法添加一个整型最大的值来实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">   1.通过ViewPager适配器中的getCount()方法添加一个整型最大的值来实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-nbsp-2-通过继承ViewPager重写ViewPager中的部分方法来实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">   2.通过继承ViewPager重写ViewPager中的部分方法来实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、实现原理："><span class="nav-number">1.2.</span> <span class="nav-text">二、实现原理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-nbsp-上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。"><span class="nav-number">1.2.1.</span> <span class="nav-text">   上述的的方式一，其实可以理解成一种假的无限轮播，同时它太过野蛮也比较耗费资源，所以在这里我主要介绍第二种实现无线轮播图的方法。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理展示图如下图所示："><span class="nav-number">1.2.2.</span> <span class="nav-text">原理展示图如下图所示：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、代码实现"><span class="nav-number">1.3.</span> <span class="nav-text">三、代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">布局文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java代码实现"><span class="nav-number">1.3.2.</span> <span class="nav-text">java代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义的无限轮播的CycleViewPager"><span class="nav-number">1.3.3.</span> <span class="nav-text">自定义的无限轮播的CycleViewPager</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、结果展示"><span class="nav-number">1.4.</span> <span class="nav-text">四、结果展示</span></a></li></ol></li></ol></div>
             
 
           </div>
